@@ -1,21 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello World</title>
-    <url>/2024/08/25/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a class="link"   href="https://hexo.io/" >Hexo <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>! This is your very first post. Check <a class="link"   href="https://hexo.io/docs/" >documentation <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> for more info. If you get any problems when using Hexo, you can find the answer in <a class="link"   href="https://hexo.io/docs/troubleshooting.html" >troubleshooting <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> or you can ask me on <a class="link"   href="https://github.com/hexojs/hexo/issues" >GitHub <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure></div>
-
-<p>More info: <a class="link"   href="https://hexo.io/docs/writing.html" >Writing <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure></div>
-
-<p>More info: <a class="link"   href="https://hexo.io/docs/server.html" >Server <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure></div>
-
-<p>More info: <a class="link"   href="https://hexo.io/docs/generating.html" >Generating <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure></div>
-
-<p>More info: <a class="link"   href="https://hexo.io/docs/one-command-deployment.html" >Deployment <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+    <title></title>
+    <url>/2024/08/26/%E5%81%9A%E9%A2%98%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
+    <content><![CDATA[<p>30 mins 还没想法的题或者值得记录的题目：</p>
+<p><a class="link"   href="https://codeforces.com/problemset/problem/1566/F" >CF1566F - Points Movement <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> *2600</p>
+<p>自己只会 $\mathcal{O}(nm^2)$ 的 DP，当时以为 DP 没有前途，转而去想其他做法，但是实际上正解就是 DP。</p>
+<p>首先要把题目简化，<strong>不要让没用的东西影响思考</strong>，这一步虽然是简单的，但是确确实实能优化算法。</p>
+<p>对于已经被点覆盖到的线段和包含其他线段的线段，可以去掉。</p>
+<p><a class="link"   href="https://codeforces.com/problemset/problem/1498/D" >CF1498D - Bananas in a Microwave <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> *2200</p>
+<p>这题提供了 <strong>另一种求解可行性多重背包</strong> 的方法，将物品个数的看作是对转移次数的限制。</p>
+<p>设 $f_i$ 表示之前凑出 $i$ 最早在哪里，然后 $g_i$ 表示 <strong>这一轮</strong> 凑出 $i$ 所需的最小步数，一开始 $g_i &#x3D; [f_i &#x3D; \inf] \times \inf$。</p>
+<p>对于加法我们有 $g_{i + a} &#x3D; \min(g_{i + a}, g_i + 1)$，对于乘法可以 $g_{p} &#x3D; \min(g_{p}, g_i + 1)$，一个转移合法，当且仅当 $g_i \le y$，那么更新 $f$ 数组即可。</p>
+<p>相似题：POJ 1742 Coins。</p>
+<p>这东西可扩展性非常广，<del>对于不能保证 $k$ 和 $\mathrm{op}(k)$ 大小关系的，可以利用桶优化 Dijkstra 一样做到 $\mathcal{O}(V)$。</del></p>
+<p>upd on 8.11：假了，可能会出现先超出值域再变回来的情况。</p>
+<p><a class="link"   href="https://codeforces.com/problemset/problem/1863/G" >CF1863G - Swaps <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> *2800</p>
+<p>想到了 $i \to a_i$ 连边，每个连通块独立，这个的交换两点等于交换出边。</p>
+<p>然后不清楚贡献怎么算，实际上遇到这样的问题首先考虑树的做法，再考虑加上一个环的解法。</p>
+<p>发现了 $u \to v, v \to v$ 的结构，对于 $u$ 操作是没用的。</p>
+<p>模拟一下发现了操作一下 $u \to v$，就会让 $v$ 变成一个自环。</p>
+<p>但是自己没有结合起来考虑，也就是每个点的入边最多选一条。</p>
+<p>那么对于树的答案就是 $\prod (\mathrm{ind}_i + 1)$，加一是因为可以不选，这样进一步发现所有的树上的点都独立了。</p>
+<p>考虑环上：</p>
+<p>首先去思考对树的解法放到环上有什么影响，答案是算重了。</p>
+<p>一个环有 $n$ 个点 $n$ 条边，但是发现我们选择 $n - 1$ 条边就已经将所有的点变成自环了。</p>
+<p>那么对于这种情况，实际上就是有 $\sum_{i \in \text{cycle}} d_i$，对于 $i \to a_i$ 这条边钦定不选，那么其他 $x \to a_x(x \not&#x3D; i \and x\in \text{cycle})$ 都选上了，这个点还可以在剩下 $d_i - 1$ 条边中选或不选，有 $d$ 种方案。</p>
+<p>那么环的答案就是 $\prod (\mathrm{ind}<em>i + 1) - \sum</em>{i \in \text{cycle}} d_i$。</p>
+<p>对于不同的部分显然是独立的，那么直接乘起来。</p>
+<p><a class="link"   href="https://codeforces.com/problemset/problem/1327/F" >CF1327F - AND Segments <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> *2500</p>
+<p>首先每一位是独立的，限制形如区间均为 $1$ 和区间存在 $0$。</p>
+<p>然后卡住了，没有什么解题方向，实际上这时候应该先去考虑暴力的 DP。</p>
+<p>设 $f(i, j)$ 表示填了前 $i$ 个位置，最后一个 $0$ 的位置为 $j$ 的方案，预处理出一个 $\mathrm{pos}(i)$ 表示 $i$ 之前（不含 $i$）的 $0$ 能放到的最前的位置。</p>
+<p>对于一个限制 $\exists i \in [l, r], a_i &#x3D; 0$，我们令 $\mathrm{pos}(r + 1) &#x3D; \max(\mathrm{pos}(r + 1), l)$。</p>
+<p>然后考虑 $f(i, j)$ 暴力的转移：</p>
+<p>若 $j &lt; \mathrm{pos}(i)$，$f(i, j) &#x3D; 0$，这个，直接维护前缀为 $0$ 的位置即可。</p>
+<p>若 $\mathrm{pos}(i) \le j &lt; i$，$f(i, j) &#x3D; f(i, j - 1)$，这个相当于不用转移。</p>
+<p>若 $j &#x3D; i$，如果限制了 $a_i &#x3D; 1$，那么答案为 $0$，否则答案为 $\sum\limits_{k &#x3D; \mathrm{pos}(i)}^{s} f(i - 1, k)$，此时相当于是整个数组的和，维护这个即可。</p>
+<p>于是转移均摊 $\mathcal{O}(1)$，总复杂度 $\mathcal{O}(k(n + m))$。</p>
+<p>以这题为基准，还有许多应用：P6773，P4229，ABC262Ex。</p>
+<p><a class="link"   href="https://codeforces.com/problemset/problem/1218/G" >CF1218G - Alpha planetary system <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> *3000</p>
+<p>首先我想到了第一步：将三组数分为 $3k,3k + 1,3k + 2$ 的形式。</p>
+<p>当时我认为这个很难直接构造，先思考了二分图的情况，实际上这也是重要的，但是突破口有问题，直接在 DFS 树上构造就至多会有一个不合法！</p>
+<p><strong>启发：图的问题先思考树的情况。</strong></p>
+<p>对于这一个不合法的，自然是想办法调整。</p>
+<p>发现图中有奇环的情况，我们可以 $+1, +2, +1, \dots$ 来使得这个点的权值加 $1$，其他点不变。</p>
+<p>否则，说明图是一个二分图。</p>
+<p>转而思考将图分成 $3k + 1, 3k + 2$ 的情况，不妨令根 $r$ 的目标为 $3k + 1$。</p>
+<p>若 $w(r) \not&#x3D; 2 \pmod 3$，那么直接合法，因为下一层的点的 $w &#x3D; 2$。</p>
+<p>若根的度数为 $1$，那么也无妨，因为题目保证了 $n \ge 3$，所以下面的点的权值一定大于 $r$ 的权值。</p>
+<p>否则考虑 $(r, x), (r, y)$ 这两条边，令其都加一，最后得到 $w(r) &#x3D; 1, w(x) &#x3D; w(y) &#x3D; 0$。</p>
+<p>因为 $x,y$ 不相邻（否则存在奇环），并且其他位置没有 $w &#x3D; 0$ 的情况，所以这是合法的。</p>
+<p><a class="link"   href="https://codeforces.com/problemset/problem/1312/F" >CF1312F - Attack on Red Kingdom <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> *2500</p>
+<p>博弈论好题。</p>
+<p>对博弈论方面不够敏感，花了 30mins 才往每个游戏组合起来和 SG 函数上去考虑，然后问题就在于 $a_i$ 过大，无法暴力求解 SG 函数。</p>
+<p><strong>这题的关键在于寻找 SG 函数的循环节。</strong></p>
+<p>将连续 $5$ 个 SG 函数（共 $15$ 个数字作为一个组合），暴力查找循环节，理论上的最劣情况是 $4^{15}$，但是实际上这个值不会超过 36。</p>
+<p>那么我们可以快速算 SG 函数，问题也就迎刃而解。</p>
+<p><a class="link"   href="https://codeforces.com/problemset/problem/1196/F" >CF1196F - K-th Path <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> *2200</p>
+<p>全局第 $k$ 的最短路一定只由前 $k$ 短的边组成。</p>
+<p><a class="link"   href="https://codeforces.com/problemset/problem/1844/G" >CF1844G - Tree Weights <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> *3000</p>
+<p>Gold 的好题。</p>
+<p>从低位到高位一点点确定。</p>
+<p><a class="link"   href="https://codeforces.com/problemset/problem/1186/F" >CF1186F - Vus the Cossack and a Graph <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> *2400</p>
+<p>遇到这种图上边选择一半的问题可以考虑欧拉路。</p>
+<p><a class="link"   href="https://codeforces.com/problemset/problem/1038/F" >CF1038F - Wrap Around <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> *2900</p>
+<p>十分巧妙的题。</p>
 ]]></content>
   </entry>
 </search>
