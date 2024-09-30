@@ -230,7 +230,7 @@ g_{i,j} = \dfrac{\binom{s_i - 1}{j}}{(s_i - j)!}</script><p>含义是在 <mjx-co
   </entry>
   <entry>
     <title>CSP-S 和 NOIP 模拟赛记录</title>
-    <url>/2024/09/21/Untitled/</url>
+    <url>/2024/09/21/CSP-S%20%E5%92%8C%20NOIP%20%E6%A8%A1%E6%8B%9F%E8%B5%9B%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<h2 id="9-18（by-lanos212）"><a href="#9-18（by-lanos212）" class="headerlink" title="9.18（by lanos212）"></a>9.18（by lanos212）</h2><p>T1 签到，10 mins 内过了。</p>
 <p>T2 乍一看有点困难，题目太形式化，不太直观，先跳过去思考 T3 了，T3 没有什么 DP 的思路，但是这种题显然需要 DP。</p>
 <p>看了一眼 T4，被一堆式子糊脸恶心了，没有怎么思考。</p>
